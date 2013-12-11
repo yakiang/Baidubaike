@@ -16,6 +16,9 @@ setup(
     download_url = 'http://yakiang.com/project/baidubaike.tar.gz', 
     keywords = ['baidu', 'wiki', 'API', 'html'], 
     classifiers = (
+        'Operating System :: OS Independent', 
+        'Development Status :: 4 - Beta', 
+        'Topic :: Internet :: WWW/HTTP :: Dynamic Content', 
         'Topic :: Software Development :: Libraries',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
