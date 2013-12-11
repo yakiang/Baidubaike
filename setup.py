@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from distutils.core import setup
 
 dependencies = [
@@ -8,12 +9,12 @@ dependencies = [
 setup(
     name = 'baidubaike',
     packages = ['baidubaike'], 
-    version = '1.2.1',
+    version = '1.2.2',
     description = 'A wrapper of Baidu Baike',
     author = 'yakiang',
     author_email = 'strak47@gmail.com',
     url = 'https://github.com/yakiang/baidubaike',   
-    download_url = 'http://yakiang.com/project/baidubaike-1.0.tar.gz', 
+    download_url = 'http://yakiang.com/project/baidubaike-1.2.2.tar.gz', 
     keywords = ['baidu', 'wiki', 'API', 'html'], 
     classifiers = (
         'Natural Language :: Chinese (Simplified)', 
@@ -29,5 +30,8 @@ setup(
     long_description = """
     With this package you can easily get content of an item in Baidu Baike,
     you can also search relative items. 
+
+    百度百科词条内容的简单封装，可轻松获取词条内容、外部链接、词条标签、参考链接等，
+    亦可搜索词条关键词。
     """
 )
