@@ -15,6 +15,13 @@ Installation
 Examples
 ========
 
+::
+
+    >>> from baidubaike import Page,  Search
+    >>> google = Page('google')
+    >>> google.get_info()
+    # {'url': u'http://baike.baidu.com/view/105.htm',  'last_modify_time': u'2013-12-04',  'title': u'google'}
+
 
 License
 =======
