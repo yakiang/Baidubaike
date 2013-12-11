@@ -8,7 +8,7 @@ dependencies = [
 setup(
     name = 'baidubaike',
     packages = ['baidubaike'], 
-    version = '1.0',
+    version = '1.1',
     description = 'A wrapper of Baidu Baike',
     author = 'yakiang',
     author_email = 'strak47@gmail.com',
@@ -25,6 +25,7 @@ setup(
         'Programming Language :: Python :: 3'
     ), 
     long_description = """
-    test
+    With this package you can easily get content of an item in Baidu Baike,
+    you can also search relative items. 
     """
 )
