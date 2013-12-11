@@ -7,8 +7,8 @@ It's not yet finished.
 
 TO DO
 -----
-+ search
-+ redirect
-+ exceptions
++ ~~search~~
++ ~~redirect~~
++ ~~exceptions~~
 + PyPI 
 + docs
