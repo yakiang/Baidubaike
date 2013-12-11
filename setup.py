@@ -9,12 +9,12 @@ dependencies = [
 setup(
     name = 'baidubaike',
     packages = ['baidubaike'], 
-    version = '1.2.2',
+    version = '1.2.3',
     description = 'A wrapper of Baidu Baike',
     author = 'yakiang',
     author_email = 'strak47@gmail.com',
     url = 'https://github.com/yakiang/baidubaike',   
-    download_url = 'http://yakiang.com/project/baidubaike-1.2.2.tar.gz', 
+    download_url = 'http://yakiang.com/projects/baidubaike.tar.gz', 
     keywords = ['baidu', 'wiki', 'API', 'html'], 
     classifiers = (
         'Natural Language :: Chinese (Simplified)', 
