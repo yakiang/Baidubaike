@@ -4,18 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 from collections import OrderedDict
 
-# def page(string, encoding='utf-8'):
-#     string = string.replace(' ', '%20')
-#     http = re.compile('^http:\/\/baike\.baidu\.com\/.*', re.IGNORECASE)
-#     if re.match(http, string):
-#         PAGE_URL = string
-#     else:
-#         PAGE_URL = 'http://baike.baidu.com/search/word?pic=1&enc=%s&word=%s'%(encoding, string)
-#     return BaikePage(PAGE_URL)
-
-# def search(title, results=10, page_n=1):
-#     return BaikeSearch(SEARCH_URL)
-    
 class Page(object):
     def __init__(self, string, encoding='utf-8'):
         url = 'http://baike.baidu.com/search/word'
