@@ -9,5 +9,6 @@ TO DO
 -----
 + search
 + redirect
++ exceptions
 + PyPI 
 + docs
