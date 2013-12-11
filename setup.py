@@ -13,7 +13,7 @@ setup(
     author = 'yakiang',
     author_email = 'strak47@gmail.com',
     url = 'https://github.com/yakiang/baidubaike',   
-    download_url = 'http://yakiang.com/project/baidubaike.tar.gz', 
+    download_url = 'http://yakiang.com/project/baidubaike-1.0.tar.gz', 
     keywords = ['baidu', 'wiki', 'API', 'html'], 
     classifiers = (
         'Operating System :: OS Independent', 
