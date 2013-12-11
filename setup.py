@@ -28,10 +28,11 @@ setup(
         'Programming Language :: Python :: 3'
     ), 
     long_description = """
+
     With this package you can easily get content of an item in Baidu Baike,
     you can also search relative items. 
 
     百度百科词条内容的简单封装，可轻松获取词条内容、外部链接、词条标签、参考链接等，
-    亦可搜索词条关键词。
+    亦可搜索词条关键词获取结果。
     """
 )
