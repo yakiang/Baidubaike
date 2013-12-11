@@ -6,6 +6,7 @@ Baidubaike
 
 Installation
 ============
+
 ::
     $ pip install baidubaike
 
@@ -22,7 +23,7 @@ License
 Thanks to
 =========
 
-* `百度百科 <http://baike.baidu.com>`__
-* `goldsmith/Wikipedia <https://github.com/goldsmith/Wikipedia`__
+* `百度百科 <http://baike.baidu.com>`_
+* `goldsmith/Wikipedia <https://github.com/goldsmith/Wikipedia>`_
 
 
