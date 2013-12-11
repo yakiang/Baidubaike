@@ -43,10 +43,10 @@ class BaikePage(object):
         return '\n'.join(content)
 
     def get_inurls(self):
-        inurls = []
+        inurls = set()
         href = self.soup.find_all(href=re.compile('\/(sub)?view(\/[0-9]*)+.htm'))
         for url in href:
-            inurls.append(url.get_text())
+            inurls.add(url.get_text())
         return inurls
 
     def get_images(self):
