@@ -1,35 +1,39 @@
 #-*-coding:utf-8-*- 
 import re
-import urllib2
+import requests
 from bs4 import BeautifulSoup
 from collections import OrderedDict
 
-def page(string, encoding='utf-8'):
-    string = string.replace(' ', '%20')
-    http = re.compile('^http:\/\/baike\.baidu\.com\/.*', re.IGNORECASE)
-    if re.match(http, string):
-        PAGE_URL = string
-    else:
-        PAGE_URL = 'http://baike.baidu.com/search/word?pic=1&enc=%s&word=%s'%(encoding, string)
-    return BaikePage(PAGE_URL)
+# def page(string, encoding='utf-8'):
+#     string = string.replace(' ', '%20')
+#     http = re.compile('^http:\/\/baike\.baidu\.com\/.*', re.IGNORECASE)
+#     if re.match(http, string):
+#         PAGE_URL = string
+#     else:
+#         PAGE_URL = 'http://baike.baidu.com/search/word?pic=1&enc=%s&word=%s'%(encoding, string)
+#     return BaikePage(PAGE_URL)
 
-def search(title, results=10, page_n=1):
-    title = title.replace(' ', '%20')
-    pn = (page_n - 1) * results
-    SEARCH_URL = 'http://baike.baidu.com/search?type=0&submit=search&pn=%d&rn=%d&word=%s'%(pn, results, title)
-    return BaikeSearch(SEARCH_URL)
+# def search(title, results=10, page_n=1):
+#     return BaikeSearch(SEARCH_URL)
     
-class BaikePage(object):
-    def __init__(self, url):
-        self.http = urllib2.urlopen(url)
-        self.html = self.http.read()
+class Page(object):
+    def __init__(self, string, encoding='utf-8'):
+        url = 'http://baike.baidu.com/search/word'
+        payload = None
+        pattern = re.compile('^http:\/\/baike\.baidu\.com\/.*', re.IGNORECASE)
+        if re.match(pattern, string):
+            url = string
+        else:
+            payload = {'pic':1, 'enc':encoding, 'word':string}
+        self.http = requests.get(url, params=payload)
+        self.html = self.http.content
         self.soup = BeautifulSoup(self.html)
 
     def get_info(self):
         info = {}
         title = self.soup.title.get_text()
         info['title'] = title[:title.rfind('_')]
-        info['url'] = self.http.geturl()
+        info['url'] = self.http.url
         info['last_modify_time'] = self.soup.find(id='lastModifyTime').get_text()
         info['creator'] = self.soup.find(class_='nslog:1022').get_text()
         return info
@@ -53,7 +57,7 @@ class BaikePage(object):
         href = self.soup.find_all(href=re.compile('\/(sub)?view(\/[0-9]*)+.htm'))
         for url in href:
             inurls.add(url.get_text())
-        return inurls
+        return list(inurls)
 
     def get_tags(self):
         tags = []
@@ -68,10 +72,13 @@ class BaikePage(object):
         return references
 
 
-class BaikeSearch(object):
-    def __init__(self, url):
-        self.http = urllib2.urlopen(url)
-        self.html = self.http.read()
+class Search(object):
+    def __init__(self, word, results_n=10, page_n=1):
+        pn = (page_n - 1) * results_n
+        url = 'http://baike.baidu.com/search'
+        payload = {'type':0, 'submit':'search', 'pn':pn, 'rn':results_n, 'word':word}
+        self.http = requests.get(url, params=payload)
+        self.html = self.http.content
         self.soup = BeautifulSoup(self.html)
 
     def get_results(self):
@@ -82,10 +89,9 @@ class BaikeSearch(object):
             a = item.find('a')
             title = a.get_text()
             title = title[:title.rfind('_')]
-            result[title] = [a.get('href')]
-            result[title].append(item.find(class_='abstract').get_text())
+            result[title] = {'url':a.get('href')}
+            result[title]['discription'] = item.find(class_='abstract').get_text().strip()
             search_results.append(result)
         return search_results
 
     
-
