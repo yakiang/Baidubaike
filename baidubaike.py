@@ -2,15 +2,21 @@
 import re
 import urllib2
 from bs4 import BeautifulSoup
+from collections import OrderedDict
 
-def page(title, encoding='utf-8'):
-    title = title.replace(' ', '%20')
-    PAGE_URL = 'http://baike.baidu.com/search/word?pic=1&enc=%s&word=%s'%(encoding, title)
+def page(string, encoding='utf-8'):
+    string = string.replace(' ', '%20')
+    http = re.compile('^http:\/\/baike\.baidu\.com\/.*', re.IGNORECASE)
+    if re.match(http, string):
+        PAGE_URL = string
+    else:
+        PAGE_URL = 'http://baike.baidu.com/search/word?pic=1&enc=%s&word=%s'%(encoding, string)
     return BaikePage(PAGE_URL)
 
 def search(title, results=10, page_n=1):
+    title = title.replace(' ', '%20')
     pn = (page_n - 1) * results
-    SEARCH_URL = 'http://baike.baidu.com/search?pn=%d&rn=%d&word='%(pn, results)
+    SEARCH_URL = 'http://baike.baidu.com/search?type=0&submit=search&pn=%d&rn=%d&word=%s'%(pn, results, title)
     return BaikeSearch(SEARCH_URL)
     
 class BaikePage(object):
@@ -49,9 +55,6 @@ class BaikePage(object):
             inurls.add(url.get_text())
         return inurls
 
-    def get_images(self):
-        pass
-
     def get_tags(self):
         tags = []
         for tag in self.soup.find_all(class_=['nslog:7336', 'taglist']):
@@ -59,10 +62,11 @@ class BaikePage(object):
         return tags
     
     def get_references(self):
-        references = {}
+        references = OrderedDict()
         for ref in self.soup.find_all(class_='nslog:1968'):
             references[ref.get_text()] = ref.get('href')
         return references
+
 
 class BaikeSearch(object):
     def __init__(self, url):
@@ -70,4 +74,18 @@ class BaikeSearch(object):
         self.html = self.http.read()
         self.soup = BeautifulSoup(self.html)
 
+    def get_results(self):
+        search_results = []
+        items = self.soup.find_all(class_='f')
+        for item in items:
+            result = {}
+            a = item.find('a')
+            title = a.get_text()
+            title = title[:title.rfind('_')]
+            result[title] = [a.get('href')]
+            result[title].append(item.find(class_='abstract').get_text())
+            search_results.append(result)
+        return search_results
+
+    
 
