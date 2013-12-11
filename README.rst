@@ -15,7 +15,7 @@ Installation
 Examples
 ========
 
-..code:: python
+.. code:: python
 
     >>> from baidubaike import Page
     >>> google = Page('google')
