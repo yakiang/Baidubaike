@@ -20,6 +20,7 @@ class BaidubaikeException(Exception):
 
 
 class PageError(BaidubaikeException):
+    """ Exception raised when a page does not exist. """
     def __init__(self, page_title):
         self.title = page_title
 
@@ -36,15 +37,3 @@ class DisambiguationError(BaidubaikeException):
 
     def __unicode__(self):
         return u"\"{0}\" may refer to: \n{1}".format(self.title, '\n'.join(self.options))
-
-
-class HTTPError(BaidubaikeException):
-    """ Exception raised by network or HTTP connection . """
-
-    def __init__(self, query):
-        self.query = query
-
-    def __unicode__(self):
-        print '1'
-        return u"Searching for \"{0}\" caused an HTTPError.Please have have a check at your network.".format(self.query)
-
