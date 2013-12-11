@@ -3,6 +3,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from collections import OrderedDict
+from exception import *
 
 class Page(object):
     def __init__(self, string, encoding='utf-8'):
@@ -16,6 +17,11 @@ class Page(object):
         self.http = requests.get(url, params=payload)
         self.html = self.http.content
         self.soup = BeautifulSoup(self.html)
+
+        if self.soup.find(class_='nslog:519'):
+            raise DisambiguationError(string, self.get_inurls())
+        if '百度百科尚未收录词条' in self.html:
+            raise PageError(string)
 
     def get_info(self):
         info = {}
@@ -41,11 +47,11 @@ class Page(object):
         return '\n'.join(content)
 
     def get_inurls(self):
-        inurls = set()
+        inurls = OrderedDict()
         href = self.soup.find_all(href=re.compile('\/(sub)?view(\/[0-9]*)+.htm'))
         for url in href:
-            inurls.add(url.get_text())
-        return list(inurls)
+            inurls[url.get_text()] = 'http://baike.baidu.com%s'%url.get('href')
+        return inurls
 
     def get_tags(self):
         tags = []
@@ -83,3 +89,5 @@ class Search(object):
         return search_results
 
     
+p=Page('香港')
+print p.get_inurls()
