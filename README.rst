@@ -1,13 +1,14 @@
 Baidubaike
 ##########
 
-**baidubaike** 是一个百度百科词条内容的简单封装，原理是抓取HTML内容并解析。
+**baidubaike** 是一个百度百科词条内容的简单封装。
 
 
 Installation
 ============
 
 ::
+
     $ pip install baidubaike
 
 
@@ -23,7 +24,7 @@ License
 Thanks to
 =========
 
-* `百度百科 <http://baike.baidu.com>`_
 * `goldsmith/Wikipedia <https://github.com/goldsmith/Wikipedia>`_
+* `百度百科 <http://baike.baidu.com>`_
 
 
