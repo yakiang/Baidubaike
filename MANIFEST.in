@@ -1,3 +1,1 @@
-include LICENSE
-exclude bar
-exclude foo
+include LICENSE README.rst
