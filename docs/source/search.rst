@@ -1,10 +1,11 @@
-.. _Search:
+
+.. _search:
 
 Search
 ******
 
 Examples::
-
+	
     >>> from baidubaike import Search
     >>> search = Search('google')
     # by default it gets 10 results of the key word google at page 1
@@ -17,5 +18,3 @@ Examples::
     ...     print r['title']        # get result title
     ...     print r['url']          # get page url 
     ...     print r['discription']  # get result discription
-
-
