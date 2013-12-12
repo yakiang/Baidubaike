@@ -25,10 +25,7 @@ Examples
     # {'url': u'http://baike.baidu.com/view/105.htm',  'last_modify_time': u'2013-12-04',  'title': u'google'}
 
 
-To do
-=====
-
-Add some docs
+More usage at `Readthedocs <http://baidubaike.readthedocs.org/en/latest/>`_
 
 
 License
