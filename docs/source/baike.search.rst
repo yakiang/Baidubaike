@@ -1,7 +1,7 @@
 
-.. _ssearch:
+.. _baike.search:
 
-Ssearch
+Baike.search
 ******
 
 Examples::

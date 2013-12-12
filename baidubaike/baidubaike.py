@@ -134,9 +134,3 @@ class Search(object):
 
         return search_results
 
-s = Search('google').get_results()
-for i in s:
-    print i['title'].encode('utf-8')
-    print i['url']
-    print i['discription'].encode('utf-8')
-    print '-------------'

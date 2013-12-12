@@ -37,6 +37,6 @@ besides, you can also create a Page with an existing url refering to it::
 
     >>> page = Page('http://baike.baidu.com/view/105.htm')
 
-you can set the encoding, by default it is *utf-8*::
+you can set the encoding, by default it is *utf-8*:::
 
     >>> page = Page('google', encoding='gbk')
