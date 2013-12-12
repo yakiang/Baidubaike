@@ -18,4 +18,6 @@ Examples::
 
     >>> for r in results:
     ...     print r['title']
+    ...     print r['url']
+    ...     print r['discription']
 
