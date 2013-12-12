@@ -12,6 +12,7 @@ There're two main functionalities:
    :maxdepth: 2
 
    page
+   test
    search
 
     
