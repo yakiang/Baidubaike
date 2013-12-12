@@ -91,9 +91,12 @@ class Page(object):
     
     def get_references(self):
         """ Get references of the page """
-        references = OrderedDict()
+        references = []
         for ref in self.soup.find_all(class_=CLASS_REFERENCE):
-            references[ref.get_text()] = ref.get('href')
+            r = {}
+            r['title'] = ref.get_text()
+            r['url'] = ref.get('href')
+            references.append(r)
         return references
 
 
@@ -116,15 +119,24 @@ class Search(object):
         """ Get searching results """
         search_results = []
         items = self.soup.find_all(class_='f')      # get results items
+
         for item in items:
             result = {}
 
             a = item.find('a')                      
             title = a.get_text()                    # get result title
             title = title[:title.rfind('_')]
-            result[title] = {'url':a.get('href')}   # get result links
+            result['title'] = title
+            result['url'] = a.get('href')           # get result links
             # get result discription
-            result[title]['discription'] = item.find(class_='abstract').get_text().strip()
+            result['discription'] = item.find(class_='abstract').get_text().strip()
             search_results.append(result)
 
         return search_results
+
+s = Search('google').get_results()
+for i in s:
+    print i['title'].encode('utf-8')
+    print i['url']
+    print i['discription'].encode('utf-8')
+    print '-------------'
