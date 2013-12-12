@@ -1,21 +1,42 @@
 
-.. _search:
+.. _page:
 
-Search
-******
+Page
+****
 
 Examples::
 	
-    >>> from baidubaike import Search
-    >>> search = Search('google')
-    # by default it gets 10 results of the key word google at page 1
+    >>> from baidubaike import Page
+    >>> page = Page('google')
 
-    >>> search = Search('google', results_n=20, page_n=2)
-    # get 20 results at page 2
+    >>> info = page.get_info()
+    # returns some basic information about the page as a dict
+    >>> print info['title'], info['url']
+    >>> print info.get('last_modify_time'), info.get('creator')
+    # these two keys may not be included
 
-    >>> results = search.get_results()
-    # returns results as a list
+    >>> page.get_content()
+    # returns main content of the page as a string
 
-    >>> for r in results:
+    >>> links = page.get_inurls()
+    # returns urls that refer to other pages as an OrderedDict
+    >>> for word in links:
+    ...     print word, links[word]
+
+    >>> page.get_tags()
+    # returns a list of relative tags
+
+    >>> ref = page.get_references()
+    # returns a list of reference links
+    >>> for r in ref:
     ...     print r['title']
+    ...     print r['url']
 
+
+besides, you can also create a Page with an existing url refering to it::
+
+    >>> page = Page('http://baike.baidu.com/view/105.htm')
+
+you can set the encoding, by default it is *utf-8*::
+
+    >>> page = Page('google', encoding='gbk')
