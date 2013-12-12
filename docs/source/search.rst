@@ -18,4 +18,3 @@ Examples::
     ...     print r['title']        # get result title
     ...     print r['url']          # get page url 
     ...     print r['discription']  # get result discription
-
