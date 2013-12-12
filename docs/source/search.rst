@@ -1,7 +1,7 @@
 Search
 ------
 
-.. code:: python
+::
 
     >>> from baidubaike import Search
     >>> search = Search('google')

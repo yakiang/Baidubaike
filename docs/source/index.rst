@@ -6,6 +6,8 @@
 Welcome to baidubaike's documentation!
 ======================================
 
+There're two main functionalities:
+
 .. toctree::
    :maxdepth: 2
 
