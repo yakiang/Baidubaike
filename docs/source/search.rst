@@ -19,4 +19,9 @@ Examples::
         ...     print r['discription']  # get result discription
 
 
+Indices and tables
+==================
 
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

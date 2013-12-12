@@ -44,3 +44,9 @@ you can set the encoding, by default it is *utf-8*:
 
         >>> page = Page('google', encoding='gbk')
 
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
