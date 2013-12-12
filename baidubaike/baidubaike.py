@@ -133,4 +133,3 @@ class Search(object):
             search_results.append(result)
 
         return search_results
-

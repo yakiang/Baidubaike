@@ -9,7 +9,7 @@ dependencies = [
 setup(
     name = 'baidubaike',
     packages = ['baidubaike'], 
-    version = '1.2.3',
+    version = '1.2.4',
     description = 'A wrapper of Baidu Baike',
     author = 'yakiang',
     author_email = 'strak47@gmail.com',
@@ -20,7 +20,6 @@ setup(
         'Natural Language :: Chinese (Simplified)', 
         'Natural Language :: Chinese (Traditional)', 
         'Operating System :: OS Independent', 
-        'Development Status :: 4 - Beta', 
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content', 
         'Topic :: Software Development :: Libraries',
         'License :: OSI Approved :: MIT License',
