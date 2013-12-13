@@ -13,6 +13,7 @@ There're two main functionalities:
 
    page
    baike.search
+   exceptions
 
     
 
