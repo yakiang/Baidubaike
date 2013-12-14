@@ -39,6 +39,8 @@ class Page(object):
             raise DisambiguationError(string.decode('utf-8'), self.get_inurls())
         if '百度百科尚未收录词条' in self.html:
             raise PageError(string)
+        if self.soup.find(id='vf'):
+            raise VerifyError(string)
 
 
     def get_info(self):

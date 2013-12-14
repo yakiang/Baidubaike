@@ -37,3 +37,13 @@ class DisambiguationError(BaidubaikeException):
 
     def __unicode__(self):
         return u"\"{0}\" may refer to: \n{1}".format(self.title, '\n'.join(self.options))
+
+
+class VerifyError(BaidubaikeException):
+    """ Exception raised when a verify-code appears. """
+
+    def __init__(self, title):
+        self.title = title
+
+    def __unicode__(self):
+        return u"The page \"{0}\" requires verifying. Query may be too frequent".format(self.title)
