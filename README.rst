@@ -14,6 +14,11 @@ Installation
     $ pip install baidubaike
 
 
+###Requirements  
++ requests
++ beautifulsoup4
+
+
 Examples
 ========
 
