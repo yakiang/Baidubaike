@@ -9,7 +9,7 @@ dependencies = [
 setup(
     name = 'baidubaike',
     packages = ['baidubaike'], 
-    version = '1.3.0',
+    version = '1.3.1',
     description = 'A wrapper of Baidu Baike',
     author = 'yakiang',
     author_email = 'strak47@gmail.com',

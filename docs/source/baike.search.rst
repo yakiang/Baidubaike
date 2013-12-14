@@ -2,7 +2,7 @@
 .. _baike.search:
 
 Baike.search
-******
+************
 
 Examples::
 	
