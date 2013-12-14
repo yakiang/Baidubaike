@@ -4,30 +4,38 @@
 Page
 ****
 
-Examples::
+To create a page::
 	
     >>> from baidubaike import Page
     >>> page = Page('google')
 
+get the basic information about the page as a dict::
+
     >>> info = page.get_info()
-    # returns some basic information about the page as a dict
     >>> print info['title'], info['url']
-    >>> print info.get('last_modify_time'), info.get('creator')
-    # these two keys may not be included
+
+    >>> print info.get('last_modify_time')
+    >>> print info.get('creator')
+    >>> print info.get('page_view')
+    # these keys might not be included
+
+get the content of the page as a string::
 
     >>> page.get_content()
-    # returns main content of the page as a string
+
+get urls refering to other pages as an OrderedDict::
 
     >>> links = page.get_inurls()
-    # returns urls that refer to other pages as an OrderedDict
     >>> for word in links:
     ...     print word, links[word]
 
+get a list of tags of the page::
+
     >>> page.get_tags()
-    # returns a list of relative tags
+
+get a list of reference links::
 
     >>> ref = page.get_references()
-    # returns a list of reference links
     >>> for r in ref:
     ...     print r['title']
     ...     print r['url']

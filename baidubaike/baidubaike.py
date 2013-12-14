@@ -52,6 +52,7 @@ class Page(object):
         info['url'] = self.http.url
 
         try:
+            info['page_view'] = self.group.find(id='viewPV').get_text()
             info['last_modify_time'] = self.soup.find(id='lastModifyTime').get_text()
             info['creator'] = self.soup.find(class_=CLASS_CREATOR).get_text()
 

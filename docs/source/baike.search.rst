@@ -4,17 +4,19 @@
 Baike.search
 ************
 
-Examples::
+By default it queries 10 results at page 1::
 	
     >>> from baidubaike import Search
     >>> search = Search('google')
-    # by default it gets 10 results of the key word google at page 1
+
+to get more results at other page number::
 
     >>> search = Search('google', results_n=20, page_n=2)
     # get 20 results at page 2
 
+to get the results::
+
     >>> results = search.get_results()
-    # returns results as a list
 
     >>> for r in results:
     ...     print r['title']
