@@ -46,4 +46,4 @@ Thanks to
 * `goldsmith/Wikipedia <https://github.com/goldsmith/Wikipedia>`_
 * `百度百科 <http://baike.baidu.com>`_
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/yakiang/baidubaike/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+.. image:: https://d2weczhvl823v0.cloudfront.net/yakiang/baidubaike/trend.png
