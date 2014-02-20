@@ -12,7 +12,7 @@ setup(
     version = '1.3.2',
     description = 'A wrapper of Baidu Baike',
     author = 'yakiang',
-    author_email = 'strak47@gmail.com',
+    author_email = 'yakiang7@gmail.com',
     url = 'https://github.com/yakiang/baidubaike',   
     download_url = 'http://yakiang.com/projects/baidubaike.tar.gz', 
     keywords = ['baidu', 'wiki', 'API', 'html'], 
